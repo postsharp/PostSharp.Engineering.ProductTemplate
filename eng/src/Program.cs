@@ -3,6 +3,7 @@
 
 using PostSharp.Engineering.BuildTools;
 using PostSharp.Engineering.BuildTools.Build.Model;
+using PostSharp.Engineering.BuildTools.Dependencies.Model;
 using Spectre.Console.Cli;
 using System.Collections.Immutable;
 
@@ -12,26 +13,13 @@ namespace BuildCaravela
     {
         private static int Main( string[] args )
         {
-            var privateSource = new NugetSource( "%INTERNAL_NUGET_PUSH_URL%", "%INTERNAL_NUGET_API_KEY%" );
-            var publicSource = new NugetSource( "https://api.nuget.org/v3/index.json", "%NUGET_ORG_API_KEY%" );
-
-            // These packages are published to internal and private feeds.
-            var publicPackages = new ParametricString[]
-            {
-                "MyProduct.$(PackageVersion).nupkg"
-            };
-
-            var publicPublishing = new NugetPublishTarget(
-                Pattern.Empty.Add( publicPackages ),
-                privateSource,
-                publicSource );
-
+       
             var product = new Product
             {
                 ProductName = "MyProduct",
                 Solutions = ImmutableArray.Create<Solution>( new DotNetSolution( "src\\MyProduct.sln" ) ),
-                PublishingTargets = ImmutableArray.Create<PublishingTarget>( publicPublishing ),
-                Dependencies = ImmutableArray.Create( new ProductDependency( "PostSharp.Engineering" ) )
+                PublicArtifacts = Pattern.Create( "MyProduct.$(PackageVersion).nupkg" ),
+                Dependencies = ImmutableArray.Create( Dependencies.PostSharpEngineering, Dependencies.Metalama )
             };
 
             var commandApp = new CommandApp();

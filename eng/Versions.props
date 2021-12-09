@@ -11,7 +11,8 @@
     
     <!-- Set the default versions of dependencies -->
     <PropertyGroup>
-        <PostSharpEngineeringVersion>1.0.4-preview</PostSharpEngineeringVersion>
+        <PostSharpEngineeringVersion>1.0.15-preview</PostSharpEngineeringVersion>
+		<MetalamaVersion>branch:master</MetalamaVersion>
 
         <!-- Example of dependencies to third parties -->
         <NewtonsoftJsonVersion>13.0.1</NewtonsoftJsonVersion>
@@ -23,8 +24,7 @@
     </PropertyGroup>
 
     <!-- Override versions (both this product and dependencies) for the local build -->
-    <Import Project="../MyProduct.Import.props" Condition="Exists('../MyProduct.Import.props')" />
-    <Import Project="Dependencies.props" Condition="Exists('Dependencies.props')"/>
+    <Import Project="Versions.g.props" Condition="Exists('Versions.g.props')" />
 
     <PropertyGroup>
         <AssemblyVersion>$(MyProductAssemblyVersion)</AssemblyVersion>
