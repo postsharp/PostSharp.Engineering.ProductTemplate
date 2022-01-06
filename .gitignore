@@ -42,3 +42,4 @@ launchSettings.json
 .idea/workspace.xml
 /eng/tools
 *.Import.props
+*.g.props
