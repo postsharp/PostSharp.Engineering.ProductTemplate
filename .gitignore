@@ -43,3 +43,4 @@ launchSettings.json
 /eng/tools
 *.Import.props
 *.g.props
+*.log
