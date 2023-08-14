@@ -11,9 +11,11 @@
     
     <!-- Set the default versions of dependencies -->
     <PropertyGroup>
-        <PostSharpEngineeringVersion>1.0.99-preview</PostSharpEngineeringVersion>
-		<MetalamaVersion>branch:master</MetalamaVersion>
+        <PostSharpEngineeringVersion>2023.2.34</PostSharpEngineeringVersion>
     </PropertyGroup>
+
+    <!-- Set the deafult versions of auto-updated dependencies -->
+    <Import Project="AutoUpdatedVersions.props" />
 
     <!-- Override versions (both this product and dependencies) for the local build -->
     <Import Project="Versions.g.props" Condition="Exists('Versions.g.props')" />

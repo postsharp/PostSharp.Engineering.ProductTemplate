@@ -3,8 +3,9 @@
 using PostSharp.Engineering.BuildTools;
 using PostSharp.Engineering.BuildTools.Build.Model;
 using PostSharp.Engineering.BuildTools.Build.Solutions;
-using PostSharp.Engineering.BuildTools.Dependencies.Model;
+using PostSharp.Engineering.BuildTools.Dependencies.Definitions;
 using Spectre.Console.Cli;
+using Dependencies = PostSharp.Engineering.BuildTools.Dependencies.Definitions.TemplateDependencies;
 
 var product = new Product( Dependencies.MyProduct )
 {
@@ -13,7 +14,7 @@ var product = new Product( Dependencies.MyProduct )
         new DotNetSolution( "src\\My.Product.sln" )
     },
     PublicArtifacts = Pattern.Create( "My.Product.$(PackageVersion).nupkg" ),
-    Dependencies = new[] { Dependencies.PostSharpEngineering, Dependencies.Metalama }
+    Dependencies = new[] { DevelopmentDependencies.PostSharpEngineering, MetalamaDependencies.V2023_3.Metalama }
 };
 
 var commandApp = new CommandApp();
