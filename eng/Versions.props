@@ -11,7 +11,7 @@
     
     <!-- Set the default versions of dependencies -->
     <PropertyGroup>
-        <PostSharpEngineeringVersion>2023.2.34</PostSharpEngineeringVersion>
+        <PostSharpEngineeringVersion>2023.2.86</PostSharpEngineeringVersion>
     </PropertyGroup>
 
     <!-- Set the deafult versions of auto-updated dependencies -->
@@ -23,6 +23,7 @@
     <PropertyGroup>
         <AssemblyVersion>$(MyProductAssemblyVersion)</AssemblyVersion>
         <Version>$(MyProductVersion)</Version>
+        <BuildDate>$(MyProductBuildDate)</BuildDate>
     </PropertyGroup>
 
 </Project>
